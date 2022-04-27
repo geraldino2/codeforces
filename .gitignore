@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+#I/O
+input
+output
+x
+
+#Desktop
+.DS_Store
