@@ -1,0 +1,67 @@
+#include "bits/stdc++.h"
+using namespace std;
+#pragma GCC target("avx,avx2,fma")
+#pragma GCC optimization ("Ofast")
+#pragma GCC optimization ("unroll-loops")
+
+using ll = long long;
+using db = long double;
+using str = string;
+
+#define INF 1001001001
+#define PI 3.1415926535897932384626
+
+using vi =  vector <int>;
+using vll = vector <ll>;
+using pii = pair <int, int>;
+using pll = pair <ll, ll>;
+
+#define eb emplace_back
+#define pb push_back
+#define mp make_pair
+#define fst first
+#define snd second
+
+#define fr(i,n)     for(int i=0;i<n;i++)
+#define frr(i,n)    for(int i=1;i<=n;i++)
+#define rfr(i,n)    for(int i=n-1;i>=0;i--)
+
+#define all(x)  x.begin(),x.end()
+#define sz(x) ((int)x.size())
+
+#define gnl cout << endl
+#define uga cout << "uga\n"
+#define no cout << "NO\n"
+#define yes cout << "YES\n"
+#define dbg(x)  cout << #x << " = " << x << "\n"
+#define prt(x) cout << x << "\n"
+#define prtarr(x,n) fr(i,n) cout << x[i] << " ";
+
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+
+bool sortbysec(const pair <int,int> &a, const pair <int,int> &b) { return (a.snd < b.snd); }
+
+int main() {
+    fastio;
+    int n, i;
+    cin >> n;
+    str initial_user, user;
+    unordered_set<str> users;
+    unordered_map<str,int> user_counts;
+    while(n--) {
+        cin >> user;
+        initial_user = user;
+        if(users.find(initial_user) == users.end()) {
+            users.insert(initial_user);
+            user_counts[initial_user] = 1;
+        } else {
+            user = initial_user + to_string(user_counts[initial_user]);
+            user_counts[initial_user]++;
+        }
+        if(user == initial_user)
+            prt("OK");
+        else
+            prt(user);
+    }
+    return 0;
+}
